@@ -1,3 +1,4 @@
-# agentic-notifications-service
+# notifications-service
 
-Node.js service baseline for the Agentic SDLC demo.
+Node.js service baseline for the SDLC demo.
+
