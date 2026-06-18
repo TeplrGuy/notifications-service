@@ -4,6 +4,7 @@ on:
   issues:
     types: [opened, edited, reopened]
 permissions:
+  copilot-requests: write
   contents: read
   issues: read
   pull-requests: read
@@ -12,7 +13,7 @@ max-ai-credits: 3
 safe-outputs:
   add-comment:
     max: 1
-  add-label:
+  add-labels:
     max: 5
   create-issue:
     title-prefix: "[triage-split] "
@@ -25,6 +26,16 @@ safe-outputs:
 You are an issue triage agent for the `notifications-service` repository — a Node.js service sending email, SMS, and in-app notifications triggered by events from orders-service (order state changes) and inventory-service (low-stock alerts).
 
 ## Your job
+
+## Mandatory skill loading and token optimization
+- Load `.github/skills/skills.lock.json` and `.github/skills/skills-manifest.json` first.
+- Load `.github/skills/issue-triage/v1/SKILL.md` before triage actions.
+- If scope is cross-service or contract-shape related, also load `.github/skills/contract-impact/v1/SKILL.md`.
+- Apply the skill contract output model (`summary`, `evidence`, `risk`, `actions`) in your triage reasoning before posting the final comment.
+- Token discipline:
+  - Use issue body, labels, and linked artifacts first; avoid broad repo scans.
+  - Keep evidence to high-signal bullets with links, not pasted logs.
+  - Keep final comment concise and action-oriented.
 
 When a new issue arrives:
 
