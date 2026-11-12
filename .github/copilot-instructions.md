@@ -30,3 +30,8 @@ This repository owns event-driven notification delivery (email/SMS/in-app) and P
 
 ## Deterministic testing
 - Read `.github/instructions/tests.instructions.md` and follow its evidence requirements for unit/integration/E2E or infra validation.
+
+## Shared company standards
+Read `.github/instructions/company-standards.instructions.md` before implementation.
+Its canonical source and immutable revision are recorded in `.github/standards.lock.json`.
+This shared baseline supplements the repository-specific guidance above. Escalate conflicts.
